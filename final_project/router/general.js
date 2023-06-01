@@ -12,7 +12,7 @@ public_users.post("/register", (req,res) => {
 
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
-  res.send(JSON.stringify(books, null, 4));
+  res.send(books);
  });
 
 // Get book details based on ISBN
@@ -22,11 +22,11 @@ public_users.get('/isbn/:isbn',function (req, res) {
  });
   
 // Get book details based on author
-public_users.get('/:author',(req,res)=>{
-  const author = req.params.author;
-  let filtered_author = books.filter((books) => books.author === author);
-  res.send(filtered_author);
- }) ;
+ public_users.get("author/:author",(req,res)=>{
+    const author = req.params.author;
+    let filtered_books = books.filter((books) => books.author === author);
+    res.send(filtered_books);
+});
 
 // Get all books based on title
 public_users.get('/title/:title', (req, res)=>{
