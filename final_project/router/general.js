@@ -22,7 +22,7 @@ public_users.get('/isbn/:isbn',function (req, res) {
  });
   
 // Get book details based on author
- public_users.get("author/:author",(req,res)=>{
+ public_users.get("/:author",(req,res)=>{
     const author = req.params.author;
     let filtered_books = books.filter((books) => books.author === author);
     res.send(filtered_books);
