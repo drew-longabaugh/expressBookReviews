@@ -22,7 +22,7 @@ public_users.get('/isbn/:isbn',function (req, res) {
  });
   
 // Get book details based on author
- public_users.get("/:author",(req,res)=>{
+ public_users.get('author/:author',(req,res)=>{
     let booksbyauthor = [];
   let isbns = Object.keys(books);
   isbns.forEach((isbn) => {
