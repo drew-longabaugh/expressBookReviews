@@ -62,16 +62,8 @@ public_users.get('/title/:title', (req, res)=> {
 
 //  Get book review
 public_users.get('/review/:isbn',function (req, res) {
-    let booksbyreview = [];
-    let isbns = Object.keys(books);
-    isbns.forEach((isbn) => {
-      if(books[isbn]["reviews"] === req.params.review) {
-        booksbyreview.push({"isbn":isbn,
-                            "author":books[isbn]["author"],
-                            "title":books[isbn]["title"]});
-      }
-    });
-    res.send(JSON.stringify({booksbyreview}, null, 4));
+  const isbn = req.params.isbn;
+  res.send(books[isbn]["reviews"])
 });
 
 module.exports.general = public_users;
